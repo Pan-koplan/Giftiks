@@ -1,7 +1,6 @@
 @extends('maket')
 @section('maincontent')
 <div class="main-content">
-
     <div id="main" class="the-tv tv-container" data-v-9d1fb51c="" data-v-44cf6b72="">
         <div class="the-tv__observer the-tv__observer_large" data-v-9d1fb51c="">
             <div id="1931258" class="lh-large-article-card__wrapper" data-v-9d1fb51c=""><a href="/anons-pixeldarts/" title="Дартс и не только: представлена пиксельная доска с ретроиграми для компании" aria-label="Дартс и не только: представлена пиксельная доска с ретроиграми для компании" data-jest="link" class="lh-large-article-card__link"></a>

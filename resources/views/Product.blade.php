@@ -1,5 +1,5 @@
 @extends('maket')
-@section('title')категория@endsection
+@section('title') <?= $gift->name?> @endsection
 @section('maincontent')
     <style>
         .main_conteiner {
@@ -121,7 +121,7 @@
 
 <body>
 
-    <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+    <a class="btn btn-primary" data-bs-toggle="offcanvas" href="<?= $gift->link ?>" role="button" aria-controls="offcanvasExample">
         Link with href
     </a>
     <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
@@ -149,15 +149,11 @@
                         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                     </ol>
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="/Images/cake.png" alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="/Images/cake_hor.jpg" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="/Images/chair.jpg" alt="Third slide">
-                        </div>
+                        <?php foreach ($photos as $index => $photo): ?>
+                            <div class="carousel-item <?php echo $index === 0 ? 'active' : ''; ?>">
+                                <img src='{{Storage::url($photo)}}' class="d-block w-100" alt="<?= $gift->name?>">
+                            </div>
+                        <?php endforeach; ?>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -170,8 +166,8 @@
                 </div>
             </div>
             <div class="right">
-                <h1>Cтул изящный хороший</h1>
-                <p> Шикарный благородный стул, созданный для настоящих любителей посидеть и отдохнуть. Если вы настоящий ценитель, то вы определенно оцените эту вещь </p>
+                <h1><?= $gift->name ?></h1>
+                <p> <?= $gift->description ?></p>
                 <div class="but">
                     <button type="button" class="btn btn-outline-primary">OZON</button>
                     <button type="button" class="btn btn-outline-primary">Share</button>

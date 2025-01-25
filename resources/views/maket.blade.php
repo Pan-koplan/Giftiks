@@ -22,7 +22,7 @@
         <ul class="nav-links">
             <li><a href="/Catalog">Каталог</a></li>
             <li><a href="/Library">Подборки</a></li>
-            <li><a href="/Auth">Персональный подбор</a></li>
+            <li><a href="/">Персональный подбор</a></li>
             <?php
             if (isset($_COOKIE['name']))
                 echo '<li><a href="/User">Личный кабинет</a></li>';
@@ -64,7 +64,7 @@
 @yield('maincontent') 
 </body>
    
-<footer class="site-footer" style="margin-top: 5%;">
+<footer class="site-footer" style="background-color:#F3EEE8; margin-top: 5%;">
     <div class="footer-container">
         <div class="footer-columns">
 

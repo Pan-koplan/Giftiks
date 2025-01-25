@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class maincontroller extends Controller
 {
     public function home(){
-        return view('index');
+        return view('Giftiks');
     }
     public function auth(){
         return view('Auth');

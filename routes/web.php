@@ -1,9 +1,15 @@
 <?php
 
+use App\Http\Controllers\AIcontroller;
+use App\Http\Controllers\dbcontroller;
 use App\Http\Controllers\maincontroller;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [maincontroller::class, 'home']);
+Route::get('/', [maincontroller::class, 'home'])->name('home');
+Route::get('/gift/{id}', [dbcontroller::class, 'gift_page'])->name('show_gift');
+Route::post('/results', [dbcontroller::class, 'get'])->name('db_out');
+Route::get('/Giftiks/db', [dbcontroller::class, 'submit'])->name('dbpush');
+Route::post('/Giftiks/get-description', [AIcontroller::class, 'TagGen'])->name('YATAG');
 Route::get('/LogIn', function () {
     return view('LogIn');
 });

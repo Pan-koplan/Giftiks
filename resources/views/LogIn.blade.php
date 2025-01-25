@@ -2,7 +2,8 @@
 @section('title')Авторизация@endsection
 @section('maincontent')
 <div class="main-content">
-        <form method="post" action="/lib/reg.php">
+        <form method="post" action="/Auth/check">
+            @csrf
             <img class="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="логотип" width="72" height="57">
             <h1 class="h3 mb-3 fw-normal">Регистрация</h1>
 
@@ -33,6 +34,15 @@
                 </label>
             </div>
             <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+            @if($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{$error}}</li>
+                        @endforeach    
+                    </ul>
+                </div>
+             @endif
         </form>
     </div>
 @endsection
