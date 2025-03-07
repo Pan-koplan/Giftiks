@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -34,21 +33,6 @@
 
 
     </div>
-
-    <div class="mobile-menu">
-        <span class="close-menu" onclick="toggleMobileMenu()">×</span>
-        <a href="/Catalog">Каталог</a>
-        <a href="/Index">Подборки</a>
-        <a href="#personal">Персональный подбор</a>
-        <?php
-        if (isset($_COOKIE['name']))
-            echo '<a href="/User">Личный кабинет</a>';
-        else {
-            echo '<a href="/LogIn">Регистрация</a>';
-            echo '<a href="/Auth">Авторизация</a>';
-        }
-        ?>
-        <!-- <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">Профиль</a> -->
     </div>
 </header>
 <script>

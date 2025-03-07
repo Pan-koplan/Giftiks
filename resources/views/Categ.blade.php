@@ -104,13 +104,6 @@
                 </a>
                 <div class="cost">5 рублей</div>
             </div>
-            <div class="card">
-                <a href="/Product.php">
-                    <img src="/Images/chair.jpg" alt="">
-                    <h3 class="name">Стул</h3>
-                </a>
-                <div class="cost">5 рублей</div>
-            </div> -->
         </div>
     </div>
 @endsection
