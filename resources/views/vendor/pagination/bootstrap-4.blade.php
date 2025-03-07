@@ -41,7 +41,6 @@
                 </div>
             </div>
         </div>
-      <div class="gap_line"></div>
       <div class="suggest_product">
         <div class="title_center">Похожие товары</div>
 
@@ -54,7 +53,7 @@
                 <a href={{ url('/gift/' . $gift->id) }}>
                   <?php
                       $photo_url = str($gift->id);
-                      $photo= '/Images/' . $gift->source . '_' . $photo_url . '_1.jpg';
+                      $photo= '/Images/wbshkaa_' . $photo_url . '_1.jpg';
                   ?>
                   
                   <img src="{{ Storage::url($photo) }}" class="product_image" alt={{$gift->name}}>
@@ -67,9 +66,9 @@
                 <div class="cost"></div>
             </div>
           @endforeach
-        </div>
-      {{ $gifts->links() }}
     </div>
+      {{ $gifts->links() }}
+
   </div>
 <script>
   const mainImage = document.getElementById("mainImage");

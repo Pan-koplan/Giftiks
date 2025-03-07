@@ -9,6 +9,10 @@ class maincontroller extends Controller
     public function home(){
         return view('Giftiks');
     }
+
+    public function category(){
+        return view('Categ');
+    }
     public function auth(){
         return view('Auth');
     }

@@ -1,280 +1,101 @@
 @extends('maket')
-@section('title')Авторизация@endsection
-@section('maincontent')
-    <style>
-        * {
-            margin: 0px;
-            padding: 0px;
-        }
+@section('title')
+    Подборки подарков
+@endsection
 
-        .catalog {
-            display: grid;
-            color: #4fc3f7;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: repeat(3);
-            text-align: center;
-        }
-
-        .catalog>div {
-            margin-top: 10%;
-        }
-
-        .catalog>div>img {
-            width: 60%;
-            margin-bottom: 2%;
-            margin-top: 10%;
-        }
-
-        @media (max-width: 600px) {
-            .catalog {
-                display: grid;
-                color: #4fc3f7;
-                grid-template-columns: 1fr;
-                grid-template-rows: repeat(9);
-                text-align: center;
-            }
-
-            .catalog>div>img {
-                width: 100%;
-                margin-bottom: 1%;
-            }
-        }
-
-        .card-body>img {
-            position: absolute;
-            z-index: 0;
-        }
-
-        .card-body>p {
-            position: absolute;
-            z-index: 1;
-        }
-    </style>
-    <h2 style="text-align: center; margin-top: 2%;">Популярные подборки&#9760;</h2>
-    <div class="main-content">
-        <div id="main" class="the-tv tv-container" data-v-9d1fb51c="" data-v-44cf6b72="">
-            <div class="the-tv__observer the-tv__observer_large" data-v-9d1fb51c="">
-                <div id="1931258" class="lh-large-article-card__wrapper" data-v-9d1fb51c=""><a href="Article.php" title="Дартс и не только: представлена пиксельная доска с ретроиграми для компании" aria-label="Что подарить на новый год близким?" data-jest="link" class="lh-large-article-card__link"></a>
-                    <div data-jest="card" class="lh-large-article-card">
-                        <div class="lh-large-article-card__cover"><img srcset="https://cdn.lifehacker.ru/wp-content/uploads/2024/11/Bez_imeni_1_1732802176_lh_little.jpg 390w, https://cdn.lifehacker.ru/wp-content/uploads/2024/11/Bez_imeni_1_1732802176_lh_average.jpg 784w" sizes="(min-width: 1024px) 782px, (min-width: 768px) 718px, (max-width: 767px) 100vw, 100vw" src="https://cdn.lifehacker.ru/wp-content/uploads/2024/11/Bez_imeni_1_1732802176_lh_little.jpg" alt="Pixeldarts" width="390" height="195" loading="eager" class="app-picture__img" data-v-fa02defc=""></div>
-                        <div data-jest="title" class="lh-large-article-card__title">Что подарить на новый год близким</div>
-                        <div class="lh-large-article-card__controls-and-meta">
-                            <div class="lh-article-card-controls lh-large-article-card__controls" style="--base-color: rgba(255,255,255, 0.8); --hover-color: white; --base-color-text: rgba(255,255,255, 0.8); --hover-color-text: white;">
-                                <div class="lh-favorite-block lh-article-card-controls__favorite" style="--base-color: rgba(255,255,255, 0.8); --hover-color: white; --base-color-text: rgba(255,255,255, 0.8); --hover-color-text: white;">
-                                    <div class="lh-favorite-block__menu">
-                                        <div enabled="enabled" class="context-menu" data-v-10849426="">
-                                            <div class="context-menu__handler" data-v-10849426="">
-                                                <div class="lh-button-icon lh-favorite-block__menu-handler" style="--base-color: rgba(255,255,255, 0.8); --hover-color: white; --base-color-text: rgba(255,255,255, 0.8); --hover-color-text: white;" data-v-10849426="">
-                                                    <div class="lh-button-icon__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M5 18.9989L12.0035 15.2256L19 19V7.27541C19 6.04157 17.8504 5 16.3913 5H7.60867C6.14962 5 5 6.04157 5 7.27541V18.9989Z" stroke="#969698" stroke-width="2" stroke-linejoin="round"></path>
-                                                        </svg></div>
-                                                    <div class="lh-button-icon__text lh-button-icon__text--hidden"><span>Избранное</span></div>
-                                                </div>
-                                            </div>
-                                            <div class="v-portal" style="display:none;" data-v-10849426=""></div>
-                                            <div class="v-portal" style="display:none;" data-v-3372a516="" data-v-10849426=""></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="lh-article-card-meta lh-large-article-card__meta" style="--base-color: rgba(255,255,255, 0.8); --hover-color: white;">
-                                <div class="lh-article-card-meta__container">
-                                    <div class="lh-article-card-meta__text"><span><a href="/topics/news/" data-jest="category" class="lh-article-card-meta__category lh-article-card-meta__text">
-                                                Подборка
-                                            </a></span></div>
-                                    <div class="lh-article-card-meta__text"><span><a href="/topics/technology/gadgets/" data-jest="category" class="lh-article-card-meta__category lh-article-card-meta__text">
-                                                Новый год
-                                            </a></span></div>
-                                </div>
-                            </div>
-                        </div><!---->
-                    </div>
-                </div>
+@section('content')
+   <div class="main_container">
+      <div class="article-content">
+        <div class="main-content-line">
+          <div class="main-content-item-big">
+            <button class="favorite">
+              <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+              <svg
+                height="512px"
+                style="enable-background: new 0 0 512 512"
+                version="1.1"
+                viewBox="0 0 512 512"
+                width="512px"
+                xml:space="preserve"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <g id="_x31_66_x2C__Heart_x2C__Love_x2C__Like_x2C__Twitter">
+                  <g>
+                    <path
+                      d="M365.4,59.628c60.56,0,109.6,49.03,109.6,109.47c0,109.47-109.6,171.8-219.06,281.271    C146.47,340.898,37,278.568,37,169.099c0-60.44,49.04-109.47,109.47-109.47c54.73,0,82.1,27.37,109.47,82.1    C283.3,86.999,310.67,59.628,365.4,59.628z"
+                      style="fill: #ff7979"
+                    />
+                  </g>
+                </g>
+                <g id="Layer_1" />
+              </svg>
+            </button>
+            <div
+              class="item-content-big"
+              style="
+                background: linear-gradient(
+                    0deg,
+                    rgba(0, 0, 0, 1) 0%,
+                    rgba(0, 0, 0, 0) 100%
+                  ),
+                  url({{ Storage::url("Images/item-content-big0.png") }}) center;
+                background-size: cover;
+                background-repeat: no-repeat;
+              "
+            >
+              <div class="title_big">
+                Топ 10 подарков для нее на 14 февраля в 2025 году
+              </div>
+              <div class="item-metadata">
+                <div>#Для нее #14 февраля</div>
+              </div>
             </div>
-            <div class="the-tv__observer the-tv__observer_middle" data-v-9d1fb51c="">
-                <div id="920920" class="lh-middle-article-card the-tv__article-card_middle" data-v-9d1fb51c=""><a href="/Torty_for_diabets.php" title="16 тортов, которые можно подарить диабетику" aria-label="16 тортов, которые можно подарить диабетику" data-jest="link" class="lh-middle-article-card__link"></a>
-                    <div class="lh-middle-article-card__cover-wrapper"><img src="/Images/cake_hor.jpg" style="background-size: cover; width: 100%; "></div><!---->
-                    <div data-jest="title" class="lh-middle-article-card__title">16 тортов, которые можно подарить диабетику</div>
-                    <div class="lh-middle-article-card__controls-and-meta">
-                        <div class="lh-article-card-controls lh-middle-article-card__controls" style="--base-color: #969698; --hover-color: black; --base-color-text: #5C5C5C; --hover-color-text: black;">
-                            <div class="lh-favorite-block lh-article-card-controls__favorite" style="--base-color: #969698; --hover-color: black; --base-color-text: #5C5C5C; --hover-color-text: black;">
-                                <div class="lh-favorite-block__menu">
-                                    <div enabled="enabled" class="context-menu" data-v-10849426="">
-                                        <div class="context-menu__handler" data-v-10849426="">
-                                            <div class="lh-button-icon lh-favorite-block__menu-handler" style="--base-color: #969698; --hover-color: black; --base-color-text: #5C5C5C; --hover-color-text: black;" data-v-10849426="">
-                                                <div class="lh-button-icon__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M5 18.9989L12.0035 15.2256L19 19V7.27541C19 6.04157 17.8504 5 16.3913 5H7.60867C6.14962 5 5 6.04157 5 7.27541V18.9989Z" stroke="#969698" stroke-width="2" stroke-linejoin="round"></path>
-                                                    </svg></div>
-                                                <div class="lh-button-icon__text lh-button-icon__text--hidden"><span>Избранное</span></div>
-                                            </div>
-                                        </div>
-                                        <div class="v-portal" style="display:none;" data-v-10849426=""></div>
-                                        <div class="v-portal" style="display:none;" data-v-3372a516="" data-v-10849426=""></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lh-article-card-meta lh-middle-article-card__meta" style="--base-color: #5C5C5C; --hover-color: black;">
-                            <div class="lh-article-card-meta__container">
-                                <div class="lh-article-card-meta__text"><span><a href="/topics/basic/" data-jest="category" class="lh-article-card-meta__category lh-article-card-meta__text">
-                                            Подборка
-                                        </a></span></div>
-                                <div class="lh-article-card-meta__text"><span><a href="/topics/basic/" data-jest="category" class="lh-article-card-meta__category lh-article-card-meta__text">
-                                            Вкусности
-                                        </a></span></div>
-                            </div>
-                        </div>
-                    </div>
+          </div>
+          @foreach ($articles as $article)
+            <a href="{{ url('/article/' . $article->id) }}">
+              <div class="main-content-item">
+                <div class="main-content-item-content">
+                  <button class="favorite">
+                    <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+                    <svg
+                      height="512px"
+                      style="enable-background: new 0 0 512 512"
+                      version="1.1"
+                      viewBox="0 0 512 512"
+                      width="512px"
+                      xml:space="preserve"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                    >
+                      <g id="_x31_66_x2C__Heart_x2C__Love_x2C__Like_x2C__Twitter">
+                        <g>
+                          <path
+                            d="M365.4,59.628c60.56,0,109.6,49.03,109.6,109.47c0,109.47-109.6,171.8-219.06,281.271    C146.47,340.898,37,278.568,37,169.099c0-60.44,49.04-109.47,109.47-109.47c54.73,0,82.1,27.37,109.47,82.1    C283.3,86.999,310.67,59.628,365.4,59.628z"
+                            style="fill: #ff7979"
+                          />
+                        </g>
+                      </g>
+                      <g id="Layer_1" />
+                    </svg>
+                  </button>
+                  <img
+                    class="item-content-photo"
+                    src="{{ Storage::url($article->image) }}"
+                  />
+                  <div class="title">
+                    {{$article->title}}
+                  </div>
+                  <div class="item-metadata">
+                    <div class="tag">#Для нее #14 февраля</div>
+                  </div>
                 </div>
-            </div>
-            <div class="the-tv__observer the-tv__observer_middle" data-v-9d1fb51c="">
-                <div id="920920" class="lh-middle-article-card the-tv__article-card_middle" data-v-9d1fb51c=""><a href="/Torty_for_diabets.php" title="16 тортов, которые можно подарить диабетику" aria-label="16 тортов, которые можно подарить диабетику" data-jest="link" class="lh-middle-article-card__link"></a>
-                    <div class="lh-middle-article-card__cover-wrapper"><img src="/Images/cake_hor.jpg" style="background-size: cover; width: 100%; "></div><!---->
-                    <div data-jest="title" class="lh-middle-article-card__title">16 тортов, которые можно подарить диабетику</div>
-                    <div class="lh-middle-article-card__controls-and-meta">
-                        <div class="lh-article-card-controls lh-middle-article-card__controls" style="--base-color: #969698; --hover-color: black; --base-color-text: #5C5C5C; --hover-color-text: black;">
-                            <div class="lh-favorite-block lh-article-card-controls__favorite" style="--base-color: #969698; --hover-color: black; --base-color-text: #5C5C5C; --hover-color-text: black;">
-                                <div class="lh-favorite-block__menu">
-                                    <div enabled="enabled" class="context-menu" data-v-10849426="">
-                                        <div class="context-menu__handler" data-v-10849426="">
-                                            <div class="lh-button-icon lh-favorite-block__menu-handler" style="--base-color: #969698; --hover-color: black; --base-color-text: #5C5C5C; --hover-color-text: black;" data-v-10849426="">
-                                                <div class="lh-button-icon__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M5 18.9989L12.0035 15.2256L19 19V7.27541C19 6.04157 17.8504 5 16.3913 5H7.60867C6.14962 5 5 6.04157 5 7.27541V18.9989Z" stroke="#969698" stroke-width="2" stroke-linejoin="round"></path>
-                                                    </svg></div>
-                                                <div class="lh-button-icon__text lh-button-icon__text--hidden"><span>Избранное</span></div>
-                                            </div>
-                                        </div>
-                                        <div class="v-portal" style="display:none;" data-v-10849426=""></div>
-                                        <div class="v-portal" style="display:none;" data-v-3372a516="" data-v-10849426=""></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lh-article-card-meta lh-middle-article-card__meta" style="--base-color: #5C5C5C; --hover-color: black;">
-                            <div class="lh-article-card-meta__container">
-                                <div class="lh-article-card-meta__text"><span><a href="/topics/basic/" data-jest="category" class="lh-article-card-meta__category lh-article-card-meta__text">
-                                            Подборка
-                                        </a></span></div>
-                                <div class="lh-article-card-meta__text"><span><a href="/topics/basic/" data-jest="category" class="lh-article-card-meta__category lh-article-card-meta__text">
-                                            Вкусности
-                                        </a></span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="the-tv__observer the-tv__observer_middle" data-v-9d1fb51c="">
-                <div id="920920" class="lh-middle-article-card the-tv__article-card_middle" data-v-9d1fb51c=""><a href="/Torty_for_diabets.php" title="16 тортов, которые можно подарить диабетику" aria-label="16 тортов, которые можно подарить диабетику" data-jest="link" class="lh-middle-article-card__link"></a>
-                    <div class="lh-middle-article-card__cover-wrapper"><img src="/Images/cake_hor.jpg" style="background-size: cover; width: 100%; "></div><!---->
-                    <div data-jest="title" class="lh-middle-article-card__title">16 тортов, которые можно подарить диабетику</div>
-                    <div class="lh-middle-article-card__controls-and-meta">
-                        <div class="lh-article-card-controls lh-middle-article-card__controls" style="--base-color: #969698; --hover-color: black; --base-color-text: #5C5C5C; --hover-color-text: black;">
-                            <div class="lh-favorite-block lh-article-card-controls__favorite" style="--base-color: #969698; --hover-color: black; --base-color-text: #5C5C5C; --hover-color-text: black;">
-                                <div class="lh-favorite-block__menu">
-                                    <div enabled="enabled" class="context-menu" data-v-10849426="">
-                                        <div class="context-menu__handler" data-v-10849426="">
-                                            <div class="lh-button-icon lh-favorite-block__menu-handler" style="--base-color: #969698; --hover-color: black; --base-color-text: #5C5C5C; --hover-color-text: black;" data-v-10849426="">
-                                                <div class="lh-button-icon__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M5 18.9989L12.0035 15.2256L19 19V7.27541C19 6.04157 17.8504 5 16.3913 5H7.60867C6.14962 5 5 6.04157 5 7.27541V18.9989Z" stroke="#969698" stroke-width="2" stroke-linejoin="round"></path>
-                                                    </svg></div>
-                                                <div class="lh-button-icon__text lh-button-icon__text--hidden"><span>Избранное</span></div>
-                                            </div>
-                                        </div>
-                                        <div class="v-portal" style="display:none;" data-v-10849426=""></div>
-                                        <div class="v-portal" style="display:none;" data-v-3372a516="" data-v-10849426=""></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lh-article-card-meta lh-middle-article-card__meta" style="--base-color: #5C5C5C; --hover-color: black;">
-                            <div class="lh-article-card-meta__container">
-                                <div class="lh-article-card-meta__text"><span><a href="/topics/basic/" data-jest="category" class="lh-article-card-meta__category lh-article-card-meta__text">
-                                            Подборка
-                                        </a></span></div>
-                                <div class="lh-article-card-meta__text"><span><a href="/topics/basic/" data-jest="category" class="lh-article-card-meta__category lh-article-card-meta__text">
-                                            Вкусности
-                                        </a></span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="the-tv__observer the-tv__observer_middle" data-v-9d1fb51c="">
-                <div id="920920" class="lh-middle-article-card the-tv__article-card_middle" data-v-9d1fb51c=""><a href="/Torty_for_diabets.php" title="16 тортов, которые можно подарить диабетику" aria-label="16 тортов, которые можно подарить диабетику" data-jest="link" class="lh-middle-article-card__link"></a>
-                    <div class="lh-middle-article-card__cover-wrapper"><img src="/Images/cake_hor.jpg" style="background-size: cover; width: 100%; "></div><!---->
-                    <div data-jest="title" class="lh-middle-article-card__title">16 тортов, которые можно подарить диабетику</div>
-                    <div class="lh-middle-article-card__controls-and-meta">
-                        <div class="lh-article-card-controls lh-middle-article-card__controls" style="--base-color: #969698; --hover-color: black; --base-color-text: #5C5C5C; --hover-color-text: black;">
-                            <div class="lh-favorite-block lh-article-card-controls__favorite" style="--base-color: #969698; --hover-color: black; --base-color-text: #5C5C5C; --hover-color-text: black;">
-                                <div class="lh-favorite-block__menu">
-                                    <div enabled="enabled" class="context-menu" data-v-10849426="">
-                                        <div class="context-menu__handler" data-v-10849426="">
-                                            <div class="lh-button-icon lh-favorite-block__menu-handler" style="--base-color: #969698; --hover-color: black; --base-color-text: #5C5C5C; --hover-color-text: black;" data-v-10849426="">
-                                                <div class="lh-button-icon__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M5 18.9989L12.0035 15.2256L19 19V7.27541C19 6.04157 17.8504 5 16.3913 5H7.60867C6.14962 5 5 6.04157 5 7.27541V18.9989Z" stroke="#969698" stroke-width="2" stroke-linejoin="round"></path>
-                                                    </svg></div>
-                                                <div class="lh-button-icon__text lh-button-icon__text--hidden"><span>Избранное</span></div>
-                                            </div>
-                                        </div>
-                                        <div class="v-portal" style="display:none;" data-v-10849426=""></div>
-                                        <div class="v-portal" style="display:none;" data-v-3372a516="" data-v-10849426=""></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lh-article-card-meta lh-middle-article-card__meta" style="--base-color: #5C5C5C; --hover-color: black;">
-                            <div class="lh-article-card-meta__container">
-                                <div class="lh-article-card-meta__text"><span><a href="/topics/basic/" data-jest="category" class="lh-article-card-meta__category lh-article-card-meta__text">
-                                            Подборка
-                                        </a></span></div>
-                                <div class="lh-article-card-meta__text"><span><a href="/topics/basic/" data-jest="category" class="lh-article-card-meta__category lh-article-card-meta__text">
-                                            Вкусности
-                                        </a></span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+              </div>
+            </a>
+          @endforeach
+          
+      </div>
     </div>
 
 
-    <div class="catalog">
-        <div>
-            <a href="Categ.php">
-                <img src="/Images/Catalog.png" alt="">
-                <p>Интерьер</p>
-            </a>
-        </div>
-        <div>
-            <a href="Categ.php">
-                <img src="/Images/Catalog.png" alt="">
-                <p>Интерьер</p>
-            </a>
-        </div>
-        <div>
-            <a href="Categ.php">
-                <img src="/Images/Catalog.png" alt="">
-                <p>Интерьер</p>
-            </a>
-        </div>
-        <div>
-            <a href="Categ.php">
-                <img src="/Images/Catalog.png" alt="">
-                <p>Интерьер</p>
-            </a>
-        </div>
-        <div>
-            <a href="Categ.php">
-                <img src="/Images/Catalog.png" alt="">
-                <p>Интерьер</p>
-            </a>
-        </div>
-        <div>
-            <a href="Categ.php">
-                <img src="/Images/Catalog.png" alt="">
-                <p>Интерьер</p>
-            </a>
-        </div>
-    </div>
 @endsection

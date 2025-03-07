@@ -11,6 +11,10 @@ class gifts extends Model
     /** @use HasFactory<\Database\Factories\GiftsFactory> */
     use HasFactory;
     public function tags(){
-        return $this->belongsToMany(Tag::class,'gifts-tags','gift_id', 'tag_id');
+        return $this->belongsToMany(tags::class,'gifts-tags','gift_id', 'tag_id'); //
+    }
+    use HasFactory;
+    public function articles(){
+        return $this->belongsToMany(tags::class,'articles-gifts','gift_id', 'article_id'); //
     }
 }

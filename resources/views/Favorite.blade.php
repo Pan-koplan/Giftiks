@@ -1,24 +1,24 @@
 @extends('maket')
-@section('title')Подбор подарка@endsection
+@section('title')Избранное@endsection
 @section('content')
     <div class="main_container">
     <div class="main-content">
       <div class="suggest_product">
-        <div class="title_center">Подобранные подарки</div>
+        <div class="title_center">Ваши любимые подарки</div>
         
         <div class="product_line">
           @if($gifts->isEmpty())
-            <p>Подарков по этому запросу не найдено.</p>
+            <p>Пока что вы не добавили подарков</p>
           @endif
           @foreach ($gifts as $gift)
             <div class="featured-products">
-                <a href={{ url('/gift/' . $gift->id) }}>
+                <a href="{{ url('/gift/' . $gift->id) }}">
                   <?php
                       $photo_url = str($gift->id);
                       $photo= '/Images/wbshkaa_' . $photo_url . '_1.jpg';
                   ?>
                   
-                  <img src="{{ Storage::url($photo) }}" class="product_image" alt={{$gift->name}}>
+                  <img src="{{ Storage::url($photo) }}" class="product_image" alt="{{$gift->name}}">
                   <p class="price">{{$gift->cost}}</p>
                   <div class="product-name">
                     <p class="product-name2">{{$gift->name}}</p>
