@@ -4,6 +4,7 @@
 @endsection
 
 @section('content')
+<link rel="stylesheet" href="{{ asset('css/articles_gate_page.css') }}">
    <div class="main_container">
       <div class="article-content">
         <div class="main-content-line">

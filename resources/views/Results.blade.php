@@ -1,8 +1,9 @@
 @extends('maket')
 @section('title')Подбор подарка@endsection
 @section('content')
+<link rel="stylesheet" href="{{ asset('css/suggest.css') }}">
     <div class="main_container">
-    <div class="main-content">
+    <div class="content">
       <div class="suggest_product">
         <div class="title_center">Подобранные подарки</div>
         

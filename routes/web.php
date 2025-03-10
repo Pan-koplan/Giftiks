@@ -25,18 +25,6 @@ Route::get('/reg', [RegisterController::class, 'create'])->name('register');
 Route::post('/reg', [RegisterController::class, 'store']);
 Route::post('/check-email', [RegisterController::class, 'checkEmail'])->name('check.email');
 
-Route::get('/LogIn', function () {
-    return view('LogIn');
-});
-Route::get('/Catalog', function () {
-    return view('Catalog');
-});
-Route::get('/Categ', function () {
-    return view('Categ');
-});
-Route::get('/Prod', function () {
-    return view('Product');
-});
 
 Route::get('/Auth', [maincontroller::class, 'auth']);
 Route::post('/Auth/check', [maincontroller::class, 'auth_check']);
