@@ -19,7 +19,7 @@ class RegisterController extends Controller
             $request->validate([
             'name' => 'required|string',
             'email' => 'required|string|unique:users|email', // Проверка уникальности
-            'password' => 'required|confirmed'
+            'password' => 'required|confirmed|min:4'
         ]);
         $user = User::create([
             'name' => $request->name,
@@ -38,9 +38,15 @@ class RegisterController extends Controller
 
         // Проверяем, существует ли email в базе данных
         $exists = User::where('email', $email)->exists();
-
+        $message = $exists ? 'Этот email уже занят.' : 'Этот email не занят.';
+        if($exists){
+            return view("login");
+        }
+        else{
+            
+        }
         return response()
-            ->json(['exists' => $exists, 'message' => 'Этот email уже занят.'], 200)
+            ->json(['exists' => $exists, 'message' => $message], 200)
             ->header('Access-Control-Allow-Origin', 'http://127.0.0.1:8000')
             ->header('Access-Control-Allow-Credentials', 'true');
     }

@@ -55,66 +55,8 @@
     </header>
     </div>
 
-    <div class="hamburger_menu">
-        <ul>
-            <li class="nav_active"><a href="/">Подбор</a></li>
-            <li class="nav"><a href="/catalog">Коллекция</a></li>
-            <li class="nav"><a href="/library">Подборки</a></li>
-        </ul>
-    </div>
-    <div>@yield('content')</div>
 
-
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal">
-            <span class="close-btn" onclick="closeModal()">✖</span>
-            <div class="text-switcher">
-                <div class="switcher-controls">
-                    <h2 class="switcher-btn active" data-target="text1">Регистрация</h2>
-                    <h2 class="switcher-btn" data-target="text2">Авторизация</h2>
-                </div>
-
-                <div class="text-content">
-                    <div class="text-block active" id="text1">
-                        <form action="{{ route('check.email') }}" method='POST' novalidate>
-                            @csrf
-                            <label for="name">Введите электронную почту</label>
-                            <input type="text" placeholder="name" id="name" name="name">
-                            <label for="email">Введите электронную почту</label>
-                            <input type="email" placeholder="Abc@def.com" id="email" name="email">
-                            <span id="emailStatus" style="color: red;"></span> <!-- Сообщение о статусе email -->
-                            <label for="password">Введите пароль</label>
-                            <input type="password" placeholder="••••••••" id="password" name="password" required>
-                            <label for="password_confirmation">Подтвердите пароль</label>
-                            <input type="password" placeholder="••••••••" id="password_confirmation"
-                                name="password_confirmation" required>
-                            <button id="submit" type="submit">Зарегистрироваться</button>
-                        </form>
-                    </div>
-                    <div class="text-block" id="text2">
-                        <form action="{{ route('register') }}" method='POST' novalidate>
-                            @csrf
-                            <label for="email">Введите электронную почту</label>
-                            <input type="email" placeholder="Abc@def.com" id="email" name="email">
-                            <label for="password">Введите пароль</label>
-                            <input type="password" placeholder="••••••••" id="password" name="password" required>
-                            <button type="submit">Войти</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-
-        </div>
-    </div>
+    <div style="flex: 1;">@yield('content')</div>
     <footer class="footer">
         <div class="footer-content">
             <p class="footer-title"><strong>Giftiks.</strong></p>
@@ -123,6 +65,13 @@
         <hr class="footer-line">
         <p class="footer-copyright">2025 Giftiks. All rights reserved</p>
     </footer>
+    <div class="hamburger_menu">
+        <ul>
+            <li class="nav_active"><a href="/">Подбор</a></li>
+            <li class="nav"><a href="/catalog">Коллекция</a></li>
+            <li class="nav"><a href="/library">Подборки</a></li>
+        </ul>
+    </div>
 
     <script>
         const burger = document.querySelector(".burger");
