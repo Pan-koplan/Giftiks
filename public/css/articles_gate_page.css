@@ -186,26 +186,6 @@
     flex: 1;
     position: relative;
 }
-.favorite {
-    position: absolute;
-    display: block;
-    text-align: center;
-    justify-content: center;
-    top: 10px; /* Отступ сверху */
-    right: 10px; /* Отступ справа */
-    width: 35px;
-    height: 35px;
-    padding-top: 4px;
-    background-color: white;
-    border: 1px solid var(--border_gray);
-    border-radius: 5px;
-    cursor: pointer;
-    z-index: 2;
-}
-.favorite:hover {
-    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
-    transform: scale(1.1);
-}
 .article-content {
     grid-column: 2/12;
     display: flex;
@@ -219,7 +199,7 @@
     .main-content-item-big {
         grid-column: span 1;
         width: 100%;
-        height: 360px;
+        height: 240px;
     }
     .article-content {
         grid-column: 1/13;

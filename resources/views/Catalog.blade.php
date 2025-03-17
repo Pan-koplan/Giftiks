@@ -1,6 +1,6 @@
 @extends('maket')
 @section('title')
-    Подбор подарка
+    Популярные подарки
 @endsection
 @section('content')
     {{-- @dd(Auth::check()) --}}
@@ -11,7 +11,7 @@
             <div class="gap"></div>
             <div class="suggest_product">
 
-                <div class="title_center">Подобранные подарки</div>
+                <div class="title_center">Популярные подарки</div>
 
                 <div class="product_line" id="gifts-container">
                     @include('partials.gifts', ['gifts' => $gifts])

@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\gifts;
+use App\Models\User;
 use App\Models\tags;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use League\CommonMark\CommonMarkConverter;
+use Illuminate\Support\Facades\Auth;
 
 class dbcontroller extends Controller{
     // функция добавления объектов в базу данных
@@ -26,6 +28,7 @@ class dbcontroller extends Controller{
         //dd($tag->id);
         //$tag = tags::find($tag->id);      
         $tag = $tag->gifts;
+
         return view('Results', ['gifts' => $tag]);
     }
     public function gift_page($id){
@@ -35,6 +38,7 @@ class dbcontroller extends Controller{
             '0' => '0'
         ];
         $el = $gift->find($id); //поиск подарка
+        $source = $el->source;
         $tags = $el->tags;
         $descript = $el->description;
         $descript = $converter->convert($descript);
@@ -54,19 +58,16 @@ class dbcontroller extends Controller{
             ->paginate($perPage);//создаем список подарков-объектов по этим ключам
 
 
-        $photo_url[]= 'Images/' . $gift->source . '_' . $id . '_1.jpg'; //добавляем возможные фото
-        $photo = '/Images/' . $gift->source . '_' . $id . '_2.jpg';
-        if (Storage::exists($photo)) {
-            $photo_url[]= '/Images/' . $gift->source . '_' . $id . '_2.jpg';
+        $photo_url[]= 'Images/' . $source . '_' . $id . '_1.jpg'; //добавляем возможные фото
+        $j = 2;
+        while($j<5){
+            if (Storage::disk('public')->exists('Images/' . $source . '_' . $id . '_'.$j.'.jpg')) {
+                $photo_url[]= 'Images/' . $source . '_' . $id . '_'.$j.'.jpg';
+            }
+            $j += 1;
+            
         }
-        $photo = '/Images/' . $gift->source . '_' . $id . '_3.jpg';
-        if (Storage::exists($photo)) {
-            $photo_url[]= '/Images/' . $gift->source . '_' . $id . '_3.jpg';
-        }
-        $photo = '/Images/wbshkaa_' . $id . '_4.jpg';
-        if (Storage::exists($photo)) {
-            $photo_url[]= '/Images/' . $gift->source . '_' . $id . '_4.jpg';
-        } 
+        //dd($photo_url);
         return view('Product', ['gift' => $el], ['photos' => $photo_url])->with('description', $descript)->with('gifts', $gifts);
     }
     
@@ -93,8 +94,6 @@ class dbcontroller extends Controller{
         $gifts = gifts::whereIn('id', $ids)    
             ->orderByRaw("FIELD(id, " . implode(',', $ids) . ")")
             ->paginate(20);//создаем список подарков-объектов по этим ключам
-        
-
         return view('Results', ['gifts' => $gifts]);
     }
     // public function loadMore(Request $gifts)

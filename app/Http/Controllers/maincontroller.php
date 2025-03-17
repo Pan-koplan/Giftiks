@@ -2,19 +2,37 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\gifts;
 use Illuminate\Http\Request;
 
 class maincontroller extends Controller
 {
     public function home(){
-        return view('Giftiks');
+        $gifts = gifts::orderBy('rate', 'desc')
+                 ->limit(10)
+                 ->get();
+        return view('Giftiks', compact('gifts'));
+    }
+    public function loadMore(Request $request){
+        $offset = $request->input('offset', 0); // Смещение для подгрузки
+        $limit = 10; // Количество элементов для подгрузки
+        $gifts = gifts::orderBy('rate', 'desc')
+                    ->offset($offset)
+                    ->limit($limit)
+                    ->get();
+        if ($request->ajax()) {
+            return response()->json([
+                'html' => view('partials.gifts', compact('gifts'))->render(),
+                'nextOffset' => $offset + $limit,
+            ]);
+        }
+        return redirect()->back();
     }
 
-    public function category(){
-        return view('Categ');
-    }
-    public function fav(){
-        return view('Favorite');
+    public function catalog(){
+        $gifts = gifts::orderBy('rate', 'desc')
+                   ->paginate(20);
+        return view('Catalog')->with('gifts', $gifts);
     }
     public function auth(){
         return view('login');

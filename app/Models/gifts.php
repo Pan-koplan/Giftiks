@@ -17,4 +17,8 @@ class gifts extends Model
     public function articles(){
         return $this->belongsToMany(tags::class,'articles-gifts','gift_id', 'article_id'); //
     }
+    use HasFactory;
+    public function users(){
+        return $this->belongsToMany(tags::class,'gifts-users','gift_id', 'user_id'); //
+    }
 }

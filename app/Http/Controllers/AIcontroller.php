@@ -2,20 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\gifts;
-use App\Models\tags;
+
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class AIcontroller extends Controller
 {
     public function TagGen(Request $descript_prompt){
         //dd(env('FOLDERID'), env('OAUTHTOKEN'));
-        $valid = $descript_prompt->validate([
-            'descript_prompt' => 'required|min:50'
+        $validator = Validator::make($descript_prompt->all(), [
+            'descript_prompt' => 'required|min:10'
+        ], [
+            'descript_prompt.required' => 'Поле "Описание" обязательно для заполнения.',
+            'descript_prompt.min' => 'Поле "Описание" должно содержать минимум 10 символов.',
         ]);
+        // Очищаем данные от лишних пустых строк
+        $cleanedData = array_map('trim', $descript_prompt->all());
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator) // Ошибки валидации
+                ->withInput($cleanedData) // Старые данные формы
+                ->with([
+                    'custom_message', 'Пожалуйста, исправьте ошибки в форме',
+                ]);
+            }
         
-        //dd("gpt://" . env('FOLDERID') . "/yandexgpt-lite");
+        //dd($descript_prompt->input('descript_prompt'));
         // Данные запроса
         $prompt = [
             "modelUri" => "gpt://".env("FOLDERID")."/yandexgpt-lite",
@@ -31,7 +43,7 @@ class AIcontroller extends Controller
                 ],
                 [
                     "role" => "user",
-                    "text" =>  $valid['descript_prompt']
+                    "text" => $descript_prompt->input('descript_prompt')
                 ]
             ]
         ];

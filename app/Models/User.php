@@ -45,4 +45,8 @@ class user extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    use HasFactory;
+    public function gifts(){
+        return $this->belongsToMany(gifts::class,'gifts-users','user_id', 'gift_id'); //
+    }
 }
